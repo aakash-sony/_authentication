@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/forgetPass.css" />
+    <script src="../js/forget_pwd.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <form
+          action="../feature/reset_pass.html"
+          method="post"
+          onsubmit="return forgetPassword()"
+        >
+          <h3>Forget Password</h3>
+          <input
+            type="tel"
+            name="mobileNumber"
+            class="inp2"
+            required
+            id="mobile"
+            placeholder="Enter Mobile number"
+            autofocus
+            autocomplete="off"
+          /><br />
+          <input
+            type="email"
+            name="mail_Id"
+            class="inp2"
+            required
+            id="email"
+            placeholder="Enter Mail ID"
+            autocomplete="off"
+          /><br /><br />
+          <input
+            type="submit"
+            class="button"
+            value="Click here"
+            onclick="forgetPassword()"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

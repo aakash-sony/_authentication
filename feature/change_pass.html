@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/change_pass.css" />
+    <script src="../js/change_pass.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-input">
+        <form
+          action="../feature/home.html"
+          onsubmit="return changePassword()"
+          method="post"
+        >
+          <h2>Change Password</h2>
+          <input
+            type="password"
+            name="currentPass"
+            class="inp5"
+            placeholder="Enter Current Password"
+            id="currentPass"
+          />
+          <br />
+          <input
+            type="password"
+            name="newPass"
+            class="inp5"
+            placeholder="Enter New Password"
+            id="newPass"
+          /><br />
+          <input
+            type="password"
+            name="cnfPass"
+            class="inp5"
+            placeholder="Enter Confirm Password"
+            id="cnfPass"
+          /><br /><br />
+          <input type="submit" value="Reset Password" class="button" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

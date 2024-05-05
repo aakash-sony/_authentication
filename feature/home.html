@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/logout.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <script src="../js/logout.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="selectOne">
+        <h2>Welcome</h2>
+        <span id="update" class="link-item"
+          ><a href="../feature/edt_profl.html">Update Profile</a></span
+        ><br /><br />
+        <span id="change" class="link-item"
+          ><a href="../feature/change_pass.html">Change Password</a>
+        </span>
+        <br /><br />
+        <button id="logoutBtn" onclick="logoutPage()" class="button">
+          Logout
+        </button>
+      </div>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Are you sure you want to logout?</p>
+        <button id="confirmLogout">Yes</button>
+        <button id="cancelLogout">No</button>
+      </div>
+    </div>
+  </body>
+</html>

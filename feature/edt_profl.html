@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/edt_profl.css" />
+    <script src="../js/edt_profl.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="edit-profile">
+        <form
+          action="../feature/home.html"
+          id="input-box"
+          method="post"
+          onsubmit="return editProfile()"
+        >
+          <h2>Update Profile</h2>
+          <input
+            type="text"
+            name="fname"
+            class="inp4"
+            placeholder="Enter First Name"
+            id="frstName"
+            autofocus
+            autocomplete="off"
+          /><br />
+          <input
+            type="text"
+            name="lname"
+            class="inp4"
+            placeholder="Enter Last Name"
+            autocomplete="off"
+            id="lstName"
+          /><br />
+          <input
+            type="tel"
+            name="mobileNum"
+            class="inp4"
+            placeholder="Enter Mobile Number"
+            id="mbNum"
+            autocomplete="off"
+          /><br />
+          <input
+            type="email"
+            name="mailId"
+            class="inp4"
+            placeholder="Enter Mail ID"
+            id="mailId"
+            autocomplete="off"
+          /><br /><br />
+          <input type="submit" class="button" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

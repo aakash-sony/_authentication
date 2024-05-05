@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form
+        class="text"
+        action="./feature/home.html"
+        method="post"
+        onsubmit="return userLogin()"
+      >
+        <h2>Login</h2>
+        <input
+          type="text"
+          class="inp1"
+          id="uname"
+          placeholder="Username"
+          name="username"
+          autofocus
+          autocomplete="off"
+        /><br />
+        <input
+          type="password"
+          class="inp1"
+          id="pword"
+          placeholder="Password"
+          name="password"
+          onclick="userLogin()"
+        /><br />
+        <p><a href="./feature/forget_pwd.html">Forget Password</a></p>
+        <input type="submit" class="button" value="Login" /><br />
+        <p>
+          Not a member ?
+          <span><a href="./feature/register.html">Sign up</a></span>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/reset_pass.css" />
+    <script src="../js/reset_pass.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pass-box">
+        <form
+          action="../index.html"
+          method="post"
+          onsubmit="return resetPassword()"
+        >
+          <h2>Reset Password</h2>
+          <input
+            type="password"
+            placeholder="Enter New Password"
+            name="pwrd"
+            class="inp3"
+            id="newPass"
+          /><br />
+          <input
+            type="password"
+            name="pwrd"
+            class="inp3"
+            placeholder="Confirm New Password"
+            id="cnfPass"
+          /><br /><br />
+          <input
+            type="submit"
+            class="button"
+            value="Reset Password"
+            onclick="resetPassword()"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

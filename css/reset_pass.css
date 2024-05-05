@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: aquamarine;
+  font-family: "Lucida Sans";
+}
+.container {
+  width: 320px;
+  height: 340px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  margin-left: 37%;
+  margin-top: 8%;
+  border-radius: 10px;
+}
+.container .pass-box {
+  position: relative;
+  top: 8%;
+}
+h2 {
+  font-size: 20px;
+}
+.inp3 {
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid white;
+  font-size: 18px;
+  padding-left: 4px;
+  width: 250px;
+  margin-top: 40px;
+  outline: 0;
+  color: white;
+}
+.button {
+  width: 250px;
+  height: 40px;
+  background-color: aqua;
+  border-radius: 20px;
+  margin-top: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 0;
+}
+.button:hover {
+  background-color: black;
+  border: 2px solid aqua;
+  cursor: pointer;
+  color: white;
+}

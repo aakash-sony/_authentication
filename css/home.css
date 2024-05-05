@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: aquamarine;
+  font-family: "Lucida Sans";
+}
+.container {
+  width: 300px;
+  height: 320px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  margin-left: 37%;
+  margin-top: 8%;
+  border-radius: 10px;
+}
+.container .selectOne {
+  position: relative;
+  top: 8%;
+}
+h2 {
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+span a {
+  font-size: 18px;
+  text-decoration: none;
+  color: aqua;
+  cursor: pointer;
+}
+span a:hover {
+  text-decoration: underline;
+}
+.button {
+  width: 250px;
+  height: 36px;
+  background-color: aqua;
+  border-radius: 20px;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 0;
+}
+.button:hover {
+  background-color: black;
+  border: 2px solid aqua;
+  cursor: pointer;
+  color: white;
+}

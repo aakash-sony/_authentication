@@ -1,32 +1,82 @@
 <html>
   <head>
-    <link rel="stylesheet" href="../css/logout.css" />
     <link rel="stylesheet" href="../css/home.css" />
-    <script src="../js/logout.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <script src="../js/home.js"></script>
   </head>
+
   <body>
     <div class="container">
-      <div class="selectOne">
-        <h2 id="welcome_message">Welcome</h2>
-        <span id="update" class="link-item"
-          ><a href="../feature/edt_profl.html">Update Profile</a></span
-        ><br /><br />
-        <span id="change" class="link-item"
-          ><a href="../feature/change_pass.html">Change Password</a>
-        </span>
-        <br /><br />
-        <button id="logoutBtn" onclick="logoutPage()" class="button">
-          Logout
-        </button>
+      <div class="title">
+        <img src="C:\Users\Dell\Desktop\todopic.png" id="logo" />
+        <h1>TODO APP</h1>
+        <h3 id="last-logged">
+          <img src="C:\Users\Dell\Desktop\loggedin.png" id="user" />
+        </h3>
       </div>
-    </div>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Are you sure you want to logout?</p>
-        <button id="confirmLogout" class="button">Yes</button>
-        <button id="cancelLogout" class="button">No</button>
+      <div class="navbar">
+        <a href="#">My Todo</a>
+        <a href="#">Edit Profile</a>
+        <a href="#">Change Password</a>
+        <a href="#">Logout</a>
+      </div>
+      <div class="btn-container">
+        <input
+          type="button"
+          class="button"
+          value="Add New TODO"
+          id="add-todo-btn"
+        />
+      </div>
+      <div id="todo-container" class="todo-container">
+        <!-- <div class="todo-icons">
+          <i class="fas fa-edit edit-icon"></i>
+          <i class="fas fa-trash-alt delete-icon"></i>
+        </div> -->
+      </div>
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span id="close">&times;</span>
+          <h3>Add New TODO</h3>
+          <div id="todo-inputs">
+            <div class="input-container">
+              <input
+                type="text"
+                placeholder="Title"
+                name="title"
+                class="input-box"
+                id="title"
+                autofocus
+              />
+              <input
+                type="text"
+                placeholder="Description"
+                name="description"
+                class="input-box"
+                id="desc"
+              />
+              <select style="background-color: white; color: black" id="select">
+                <option>Critical</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+              <div
+                style="background-color: #000000; margin-top: 8px; height: 1px"
+                id="line"
+              ></div>
+            </div>
+          </div>
+          <br /><br />
+          <div class="btn-contain">
+            <input type="button" value="Add more +" id="addMore" class="btn" />
+            <input type="submit" value="Submit" id="submitBtn" class="btn" />
+          </div>
+        </div>
       </div>
     </div>
   </body>

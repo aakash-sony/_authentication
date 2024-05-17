@@ -1,51 +1,279 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 body {
   background-color: aquamarine;
-  font-family: "Lucida Sans";
 }
-.container {
-  width: 300px;
-  height: 320px;
-  text-align: center;
-  color: white;
+
+.title {
+  background-color: azure;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.title #logo {
+  width: 60px;
+  height: 45px;
+  margin-left: 30px;
+}
+
+.title #user {
+  width: 30px;
+  height: 20px;
+  justify-content: end;
+  margin-right: 4px;
+}
+
+.navbar {
+  width: 100%;
+  height: 45px;
   background-color: black;
-  margin-left: 37%;
-  margin-top: 8%;
-  border-radius: 10px;
-}
-.container .selectOne {
-  position: relative;
-  top: 8%;
-}
-h2 {
-  font-size: 22px;
-  margin-bottom: 40px;
-}
-span a {
-  font-size: 18px;
-  text-decoration: none;
   color: aqua;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 80px;
+  padding-left: 80px;
 }
-span a:hover {
+
+.navbar a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar a:hover {
   text-decoration: underline;
 }
-.button {
-  width: 250px;
-  height: 36px;
-  background-color: aqua;
-  border-radius: 20px;
-  margin-top: 40px;
-  font-size: 18px;
-  font-weight: bold;
-  border: 0;
+
+ul {
+  list-style-type: none;
+  margin-top: 20px;
+  width: 90%;
+  background-color: beige;
+  margin-left: 5%;
+  color: aqua;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  background-color: burlywood;
+  border-radius: 10px;
 }
-.button:hover {
+
+#add-todo-btn {
+  float: right;
+  margin: 16px;
+  height: 35px;
+  width: 110px;
+  padding-left: 8px;
+  padding-right: 8px;
   background-color: black;
-  border: 2px solid aqua;
-  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
   color: white;
+}
+#add-todo-btn:hover {
+  color: aqua;
+  border: solid 2px;
+  border-color: white;
+  cursor: pointer;
+}
+.todo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 100px;
+}
+
+.todo-tile {
+  position: relative;
+  width: 40%;
+  height: 300px; /* Set a fixed height for each tile */
+  margin-bottom: 20px;
+  margin-top: 60px;
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure content is spaced out */
+}
+
+.todo-items-container {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrollbar when content overflows */
+  right: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  width: 100%;
+  margin-bottom: 10px; /* Adjust spacing between items */
+}
+
+.todo-details-container {
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.todo-priority-container {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-left: 20px; /* Adjust spacing from the details */
+}
+
+.todo-priority {
+  text-align: right;
+  margin-right: 16px;
+}
+
+.todo-icons-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  font-size: 20px; /* Increase the size of the icons */
+}
+
+.tile-footer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  padding-top: 5px;
+  border: 0;
+  margin-left: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: black;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  max-height: 60%;
+  overflow-y: auto; /* Add scrollbar */
+  overflow-x: hidden;
+  position: relative;
+}
+.modal-content h3 {
+  text-align: center;
+  margin-top: 20px;
+  color: aqua;
+}
+
+.input-box {
+  height: 35px;
+  width: 90%;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 10%;
+  padding-left: 10px;
+  align-items: center;
+  background: transparent;
+  outline: 0;
+  border: 0;
+  border-bottom: solid 2px;
+}
+
+#todo-inputs {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1 px solid white;
+  background-color: pink;
+}
+
+#close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 25px;
+  margin-top: 3px;
+}
+
+#close:hover {
+  text-decoration: none;
+  outline: 0;
+  color: white;
+  transition: 0.4s ease-out;
+  cursor: pointer;
+}
+select {
+  margin-top: 20px;
+  height: 30px;
+  width: 250px;
+  font-size: 15px;
+  margin-left: 5%;
+  background: transparent;
+  color: white;
+  outline: 0;
+  border: 0;
+  border-bottom: solid 2px;
+}
+
+.btn-contain {
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+  float: right;
+}
+.btn {
+  height: 24px;
+  font-size: 16px;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  text-align: center;
+}
+.btn:hover {
+  background-color: black;
+  color: aqua;
+  border: white 2px solid;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

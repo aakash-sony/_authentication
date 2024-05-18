@@ -30,6 +30,20 @@ function getCurrentDate() {
     return dateString;
 }
 
+function getPreviousDate() {
+    var previousDate = new Date();
+    var previousDay = previousDate.getDate() - 1;
+    var month = previousDate.getMonth() + 1;
+    var year = previousDate.getFullYear();
+
+    previousDay = previousDay < 10 ? '0' + previousDay : previousDay;
+    month = month < 10 ? '0' + month : month;
+
+    var previousDateString = previousDay + '/' + month + '/' + year;
+    return previousDateString;
+
+}
+
 function displayLastLoggedInDate() {
     var lastLoggedInDate = getCurrentDate();
     var lastLoggedInElement = document.getElementById('last-logged');
@@ -181,6 +195,7 @@ function displayTodosAsTiles() {
     todoContainer.innerHTML = ''; // Clear existing content
 
     var todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos.reverse();
     for (var i = 0; i < todos.length; i++) {
         var todoObj = todos[i];
 
@@ -189,8 +204,15 @@ function displayTodosAsTiles() {
         todoTile.classList.add('todo-tile');
 
         var titleElement = document.createElement('h3');
-        titleElement.textContent = todoObj.curDate; // You may want to customize this
-
+        if (todoObj.curDate === getCurrentDate()) {
+            titleElement.textContent = "Today";
+        }
+        else if (todoObj.curDate === getPreviousDate()) {
+            titleElement.textContent = "Yesterday";
+        }
+        else {
+            titleElement.textContent = todoObj.curDate;
+        }
         // Create a container for todo items
         var todoItemsContainer = document.createElement('div');
         todoItemsContainer.classList.add('todo-items-container');
@@ -217,6 +239,17 @@ function displayTodosAsTiles() {
             todoPriorityContainer.classList.add('todo-priority-container');
 
             var todoPriority = document.createElement('p');
+            switch (todo.priority) {
+                case 'Critical':
+                    todoPriority.style.color = "red"; break;
+                case 'High':
+                    todoPriority.style.color = "orange"; break;
+                case 'Medium':
+                    todoPriority.style.color = "yellow"; break;
+                case 'Low':
+                    todoPriority.style.color = "green"; break;
+            }
+
             todoPriority.textContent = todo.priority;
             todoPriority.style.fontWeight = "bold";
             todoPriority.classList.add('todo-priority');

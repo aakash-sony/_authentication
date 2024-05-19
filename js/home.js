@@ -1,5 +1,6 @@
 class TODOObject {
-    constructor(status, curDate, todoList) {
+    constructor(uiD, status, curDate, todoList) {
+        this.uiD = uiD;
         this.status = status;
         this.todoList = todoList;
         this.curDate = curDate;
@@ -15,6 +16,7 @@ class TODO {
     }
 };
 
+var modal, todoObj;
 var initialTodoCount = 0;
 
 function getCurrentDate() {
@@ -57,7 +59,7 @@ window.onload = function () {
 };
 
 function addTODO() {
-    var modal = document.getElementById("myModal");
+    modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
     var addBtn = document.getElementById("add-todo-btn");
@@ -117,7 +119,7 @@ function addTODO() {
     submitBtn.onclick = function () {
 
         var todos = JSON.parse(localStorage.getItem('todos')) || [];
-        var todoObj = new TODOObject("Not Started", getCurrentDate(), []);
+        var todoObj = new TODOObject(generateUID(), "Not Started", getCurrentDate(), []);
         // Retrieve all input containers
         var inputContainers = document.querySelectorAll('.input-container');
 
@@ -189,6 +191,9 @@ window.onclick = function (event) {
 function generateUnqID() {
     return 'id_' + Date.now() + Math.floor(Math.random() * 1000);
 }
+function generateUID() {
+    return 'uid_' + Date.now();
+}
 
 function displayTodosAsTiles() {
     var todoContainer = document.getElementById('todo-container');
@@ -197,7 +202,7 @@ function displayTodosAsTiles() {
     var todos = JSON.parse(localStorage.getItem('todos')) || [];
     todos.reverse();
     for (var i = 0; i < todos.length; i++) {
-        var todoObj = todos[i];
+        todoObj = todos[i];
 
         // Create a tile for the todo object
         var todoTile = document.createElement('div');
@@ -283,6 +288,9 @@ function displayTodosAsTiles() {
         var deleteIcon = document.createElement('i');
         deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
 
+        deleteIcon.onclick = function () {
+            openDeleteConfirmationModal();
+        };
         // Append icons to the tile footer
         tileFooter.appendChild(editIcon);
         tileFooter.appendChild(deleteIcon);
@@ -293,4 +301,35 @@ function displayTodosAsTiles() {
         // Append the todo tile to the main container
         todoContainer.appendChild(todoTile);
     }
+}
+
+
+function deleteTodoTile(uid) {
+    var todos = JSON.parse(localStorage.getItem('todos')) || [];
+    var updatedTodos = todos.filter(todo => todo.uiD !== uid);
+
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+    displayTodosAsTiles(); // Refresh the tiles after deletion
+}
+
+function openDeleteConfirmationModal() {
+    var confirmationModal = document.getElementById('confirmation-modal');
+    confirmationModal.style.display = 'block';
+
+    var confirmButton = document.getElementById('confirm-delete-btn');
+    confirmButton.onclick = function () {
+        deleteTodoTile(todoObj.uiD);
+        confirmationModal.style.display = 'none';
+    };
+
+    var cancelButton = document.getElementById('cancel-delete-btn');
+    cancelButton.onclick = function () {
+        confirmationModal.style.display = 'none';
+    };
+
+    var closeModal = document.getElementById('closeModal');
+    closeModal.onclick = function () {
+        confirmationModal.style.display = 'none';
+    }
+
 }

@@ -347,3 +347,68 @@ select {
   color: aqua;
   border-radius: 20px;
 }
+
+/* CSS for the update todo modal */
+.modal3 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content3 {
+  background-color: white;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: 20%;
+  text-align: center;
+}
+#cnf-content1 {
+  font-size: 18px;
+  margin-top: 14px;
+}
+.close3 {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close3:hover {
+  color: red;
+}
+
+.cnf-container1 {
+  margin-top: 20px;
+}
+.cnf-dlt-btn1 {
+  width: 100px;
+  height: 26px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 0;
+  outline: 0;
+  background-color: black;
+  color: aqua;
+  border-radius: 20px;
+}
+.cncl-btn1 {
+  width: 100px;
+  height: 26px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 0;
+  outline: 0;
+  background-color: black;
+  color: aqua;
+  border-radius: 20px;
+}

@@ -54,8 +54,8 @@ function displayLastLoggedInDate() {
 
 window.onload = function () {
     displayLastLoggedInDate();
-    addTODO();
     displayTodosAsTiles();
+    addTODO();
 };
 
 function addTODO() {
@@ -285,12 +285,18 @@ function displayTodosAsTiles() {
         var editIcon = document.createElement('i');
         editIcon.classList.add('fas', 'fa-edit', 'edit-icon');
 
+        editIcon.onclick = function () {
+            openEditModal();
+        }
+
         var deleteIcon = document.createElement('i');
         deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
 
-        deleteIcon.onclick = function () {
-            openDeleteConfirmationModal();
-        };
+        deleteIcon.onclick = (function (uid) {
+            return function () {
+                openDeleteConfirmationModal(uid);
+            };
+        })(todoObj.uiD);
         // Append icons to the tile footer
         tileFooter.appendChild(editIcon);
         tileFooter.appendChild(deleteIcon);
@@ -312,13 +318,13 @@ function deleteTodoTile(uid) {
     displayTodosAsTiles(); // Refresh the tiles after deletion
 }
 
-function openDeleteConfirmationModal() {
+function openDeleteConfirmationModal(uid) {
     var confirmationModal = document.getElementById('confirmation-modal');
     confirmationModal.style.display = 'block';
 
     var confirmButton = document.getElementById('confirm-delete-btn');
     confirmButton.onclick = function () {
-        deleteTodoTile(todoObj.uiD);
+        deleteTodoTile(uid);
         confirmationModal.style.display = 'none';
     };
 
